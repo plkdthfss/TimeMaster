@@ -176,7 +176,7 @@ pub fn run() {
             let global_shortcut = app_handle.global_shortcut();
             let last_trigger_clone = Arc::clone(&last_trigger);
 
-            global_shortcut.on_shortcut("Ctrl+Q", move |handle, _shortcut, _| {
+            global_shortcut.on_shortcut("Alt+Q", move |handle, _shortcut, _| {
                 let mut last = last_trigger_clone.lock().unwrap();
                 let now = Instant::now();
                 if now.duration_since(*last) < Duration::from_millis(200) {
