@@ -20,4 +20,10 @@ npm install
 npm run tauri dev
 ```
 
+#### 打包安装程序
+
+```bash
+npm run tauri build
+```
+打包好的程序在src-tauri/target/release/bundle中
 
