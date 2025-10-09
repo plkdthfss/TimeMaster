@@ -2,7 +2,7 @@
   <el-dialog
     v-model="visible"
     :title="dialogTitle"
-    width="520px"
+    width="420px"
     destroy-on-close
   >
     <el-form ref="formRef" :model="form" :rules="rules" label-width="88px">
@@ -41,6 +41,7 @@
         </el-select>
       </el-form-item>
 
+      <!--
       <el-form-item v-if="form.type === 'long_term'" label="时间范围" prop="dateRange">
         <el-date-picker
           v-model="form.dateRange"
@@ -51,6 +52,28 @@
           value-format="YYYY-MM-DD"
         />
       </el-form-item>
+      -->
+
+      <el-form-item v-if="form.type === 'long_term'" label="时间范围" prop="dateRange">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <el-date-picker
+            v-model="form.dateRange[0]"
+            type="date"
+            placeholder="开始日期"
+            value-format="YYYY-MM-DD"
+            style="width: 130px;"
+          />
+          <span>至</span>
+          <el-date-picker
+            v-model="form.dateRange[1]"
+            type="date"
+            placeholder="结束日期"
+            value-format="YYYY-MM-DD"
+            style="width: 130px;"
+          />
+        </div>
+      </el-form-item>
+
     </el-form>
 
     <template #footer>
@@ -210,4 +233,8 @@ const handleSave = async () => {
   }
 }
 </script>
+
+<style>
+
+</style>
 
